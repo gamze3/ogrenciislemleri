@@ -1,0 +1,53 @@
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Beşinci|deneme</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script> <!-- VUE'yu import ettiğimiz kısım burası.-->
+        <style> 
+            .box{ /** "." ifadesi ve class ismi yazılarak classlar oluşturulur. */
+                width: 200px;
+                height: 200px;
+                border: 1px solid #137;
+                background-color: bisque;
+                margin-bottom: 10px; /** iki ifade arasında aşağı yönde boşluk bırakmak için kullanılır. */
+            }
+
+            .blue{
+                background-color: blue;
+            }
+        </style>
+
+
+    </head>
+    <body>
+
+        <div id="app">
+            <div class="box" :class="className" ></div> <!-- Dinamik (class) ve dinamik olmayan (variable) ifadeleri birleştirir js(merge eder).  -->
+            <div class="box" :class="{'blue' : showBlue}"></div>
+            <div class="box" :style="{'background-color' : 'black'}"></div> <!-- dinamik olarak style da eklenebilir. -->
+            <button @click="showBlue = ! showBlue">Renk Değiştir</button> <!-- butona tıklandığında olan renk false ise true true ise false yapıyor -->
+
+        
+        </div>
+
+        <script>
+        
+        new Vue({
+            el:"#app",
+            data: {
+                className:"blue",
+                showBlue:false
+                
+            },
+
+            
+
+        
+        })
+        </script>
+
+    </body>
+</html> <!-- Not: classlarda computed işlevsel olarak kullanılabilir. Değişken variable tanımlanıp ilgili classda kullanılabilir. -->
